@@ -252,20 +252,26 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.hero-media img {
   width: 100%;
   max-width: 380px;
   aspect-ratio: 4 / 5;
-  object-fit: cover;
+  position: relative;
+  overflow: hidden;
   border-radius: var(--radius-img);
   border: 2px solid #FCD417;
   box-shadow:
     0 0 6px rgba(252, 212, 23, 0.7),
     0 0 16px rgba(252, 212, 23, 0.45),
     0 0 34px rgba(252, 212, 23, 0.25);
-  transform: translateY(-25px);
+  margin: 0 auto;
+}
+
+.hero-media picture,
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 /* ==================================================
@@ -323,29 +329,26 @@ ul {
   flex-direction: column;
   border: 1px solid var(--border-subtle);
   box-shadow: var(--card-shadow);
-  transition: border-color 0.3s ease, transform 0.3s ease;
 }
 
 .choose-card:hover {
   border-color: var(--border-subtle-strong);
-  transform: translateY(-3px);
 }
 
 .choose-media {
   width: 100%;
   aspect-ratio: 3 / 2;
   overflow: hidden;
+  position: relative;
+  background: var(--bg-elevated);
 }
 
+.choose-media picture,
 .choose-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.choose-card:hover .choose-media img {
-  transform: scale(1.04);
+  display: block;
 }
 
 .choose-body {
@@ -1069,10 +1072,8 @@ ul {
 
   .hero-media {
     margin-top: 28px;
-  }
-
-  .hero-media img {
     max-width: 245px;
+    aspect-ratio: 4 / 5;
   }
 
   .hero-text h1 {

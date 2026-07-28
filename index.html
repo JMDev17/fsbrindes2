@@ -23,8 +23,45 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- CSS Principal -->
-  <link rel="stylesheet" href="style.css">
+  <!-- CSS Crítico Inlined (Navbar, Hero e Reserva de Layout) -->
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+    :root{--bg:#111315;--bg-alt:#17181B;--bg-footer:#0B0B0D;--bg-elevated:#1A1A1F;--bg-elevated-2:#202126;--border-subtle:rgba(255,255,255,0.08);--border-subtle-strong:rgba(255,255,255,0.16);--card-shadow:0 2px 8px rgba(0,0,0,0.2),0 14px 34px rgba(0,0,0,0.28);--text-primary:#FFFFFF;--text-secondary:#B8B8B8;--text-tertiary:#7C7C80;--accent-gold:#FFC400;--accent-gold-soft:rgba(255,196,0,0.12);--accent-gold-border:rgba(255,196,0,0.35);--green-cta:#25D366;--green-cta-hover:#1EBE5A;--font-heading:'Bricolage Grotesque',system-ui,-apple-system,sans-serif;--font-body:'Poppins',system-ui,-apple-system,sans-serif;--font:'Poppins',system-ui,-apple-system,sans-serif;--container-max:1120px;--section-py:64px;--radius-card:18px;--radius-img:14px}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    :focus-visible{outline:3px solid #FFC400;outline-offset:3px;border-radius:4px}
+    body{font-family:var(--font-body);color:var(--text-secondary);background-color:var(--bg);line-height:1.6;overflow-x:hidden;font-size:15px;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    h1,h2,.section-heading,.section-heading-l,.reviews-heading,.final-card-title{font-family:var(--font-heading);font-weight:800;letter-spacing:-0.02em;line-height:1.2;color:var(--text-primary)}
+    img{max-width:100%;height:auto;display:block}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
+    .container{max-width:var(--container-max);margin:0 auto;padding:0 24px}
+    .kicker{display:block;font-size:11px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent-gold);margin-bottom:10px}
+    .site-header{position:relative;z-index:100;background:var(--bg);padding:4px 0;min-height:86px}
+    .neon-divider{width:100%;height:1px;margin-top:14px;background:#FCD417;box-shadow:0 0 3px rgba(252,212,23,0.9),0 0 8px rgba(252,212,23,0.6),0 0 18px rgba(252,212,23,0.35),0 0 32px rgba(252,212,23,0.15);position:relative;z-index:99}
+    .header-inner{display:flex;align-items:center;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:8px}
+    .brand-logo{height:78px;width:156px;object-fit:contain;display:block}
+    .btn-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:var(--green-cta);color:#08150C;font-family:var(--font-body);font-weight:700;font-size:13.5px;border-radius:50px;letter-spacing:0.2px;border:none;cursor:pointer;box-shadow:none}
+    .btn-cta svg{width:16px;height:16px}
+    .btn-cta-lg{padding:13px 26px;font-size:14.5px;min-height:48px}
+    .btn-cta-lg svg{width:18px;height:18px}
+    .section-hero{background:var(--bg);padding:48px 0 80px}
+    .hero-content{display:grid;grid-template-columns:45% 55%;align-items:center;gap:48px}
+    .hero-text{display:flex;flex-direction:column;align-items:flex-start;text-align:left;max-width:520px}
+    .hero-text h1{font-size:clamp(1.8rem,3vw,2.4rem);font-weight:800;line-height:1.05;color:var(--text-primary);margin-bottom:14px}
+    .hero-text h1 strong{color:var(--accent-gold);font-weight:800}
+    .hero-sub{font-size:15.5px;color:var(--text-secondary);max-width:420px;margin:0 0 16px;line-height:1.6;font-weight:400}
+    .hero-media{display:flex;align-items:center;justify-content:center;width:100%;max-width:380px;aspect-ratio:4/5;position:relative;overflow:hidden;border-radius:var(--radius-img);border:2px solid #FCD417;box-shadow:0 0 6px rgba(252,212,23,0.7),0 0 16px rgba(252,212,23,0.45),0 0 34px rgba(252,212,23,0.25);margin:0 auto}
+    .hero-media picture,.hero-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .choose-media{width:100%;aspect-ratio:3/2;overflow:hidden;position:relative;background:var(--bg-elevated)}
+    .choose-media picture,.choose-media img{width:100%;height:100%;object-fit:cover;display:block}
+    @media (max-width:1024px){.section-hero{padding:32px 0 56px}.hero-content{gap:32px}}
+    @media (max-width:768px){.section-hero{padding:28px 0 56px}.hero-content{grid-template-columns:1fr;gap:40px}.hero-text{max-width:100%}.hero-media{margin-top:28px;max-width:245px;aspect-ratio:4/5}.hero-text h1{font-size:1.6rem}.btn-cta-lg{padding:12px 24px;font-size:14px;width:100%;justify-content:center}}
+    @media (max-width:480px){.site-header{min-height:70px}.brand-logo{height:62px;width:124px}.header-inner .btn-cta{padding:7px 14px;font-size:11px}.header-inner .btn-cta span{display:none}}
+  </style>
+
+  <!-- CSS Principal Minificado -->
+  <link rel="stylesheet" href="style.min.css">
 
   <!-- Tag do Google Analytics / Ads (Substituir ID quando publicar) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
@@ -45,7 +82,7 @@
       <a href="#" class="brand" aria-label="FS Brindes Home">
         <picture>
           <source type="image/avif" srcset="fotos/logo-navbar.avif">
-          <img src="images/logo-navbar.png" alt="FS Brindes - Presentes Personalizados" class="brand-logo" width="156" height="78" decoding="async">
+          <img src="fotos/logo-navbar.avif" alt="FS Brindes - Presentes Personalizados" class="brand-logo" width="156" height="78" decoding="async">
         </picture>
       </a>
 
@@ -97,7 +134,7 @@
             <img src="fotos/hero-768w.avif"
                  alt="Kit personalizado para o Dia dos Pais com caneca, cerveja e amendoim"
                  width="380"
-                 height="285"
+                 height="475"
                  loading="eager"
                  fetchpriority="high"
                  decoding="async">
@@ -134,7 +171,7 @@
                 <img src="fotos/kit-640w.avif"
                      alt="Kit personalizado de Dia dos Pais com caneca, cerveja long neck e amendoim"
                      width="380"
-                     height="285"
+                     height="253"
                      loading="lazy"
                      decoding="async">
               </picture>
@@ -172,7 +209,7 @@
                 <img src="fotos/caneca-bombom-640w.avif"
                      alt="Caneca personalizada para o Dia dos Pais com bombons"
                      width="380"
-                     height="285"
+                     height="253"
                      loading="lazy"
                      decoding="async">
               </picture>
@@ -477,7 +514,7 @@
               <div class="carousel-slide">
                 <picture>
                   <source type="image/avif" srcset="fotos/amendoim-320w.avif 320w, fotos/amendoim-640w.avif 640w" sizes="(max-width: 768px) 100vw, 350px">
-                  <img src="fotos/amendoim-640w.avif" alt="Pacote de amendoim japonês que acompanha o kit" width="350" height="622" loading="lazy" decoding="async">
+                  <img src="fotos/amendoim-640w.avif" alt="Pacote de amendoim japonês que acompanha o kit" width="350" height="262" loading="lazy" decoding="async">
                 </picture>
               </div>
               <div class="carousel-slide">
@@ -532,7 +569,7 @@
       <div class="footer-brand-wrap">
         <picture>
           <source type="image/avif" srcset="fotos/logo-navbar.avif">
-          <img src="images/logo-navbar.png" alt="FS Brindes - Presentes Personalizados" class="brand-logo" width="140" height="70" loading="lazy" decoding="async">
+          <img src="fotos/logo-navbar.avif" alt="FS Brindes - Presentes Personalizados" class="brand-logo" width="140" height="70" loading="lazy" decoding="async">
         </picture>
       </div>
       <p class="footer-copyright">&copy; <span id="current-year">2026</span> FS Brindes - Todos os direitos reservados.</p>
@@ -549,7 +586,7 @@
     </div>
   </footer>
 
-  <!-- Script Principal -->
-  <script src="script.js"></script>
+  <!-- Script Principal Otimizado e Minificado com Defer -->
+  <script defer src="script.min.js"></script>
 </body>
 </html>

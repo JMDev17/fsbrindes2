@@ -31,32 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Scroll reveal simples (CSS-only friendly)
-  const revealEls = document.querySelectorAll(
-    '.why-item, .diff-item, .review-card, .choose-card'
-  );
 
-  if (revealEls.length && 'IntersectionObserver' in window) {
-    revealEls.forEach(el => {
-      el.style.opacity = '0';
-      el.style.transform = 'translateY(24px)';
-      el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-    });
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }, i * 80);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-
-    revealEls.forEach(el => observer.observe(el));
-  }
 
   // Carrossel de fotos (Seção 6)
   const carouselBox = document.querySelector('.carousel-box');
