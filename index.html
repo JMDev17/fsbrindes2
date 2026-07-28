@@ -18,10 +18,12 @@
   <!-- Favicon -->
   <link rel="icon" type="image/avif" href="fotos/favicon.avif">
   
-  <!-- Google Fonts: Bricolage Grotesque (H1 e H2) e Poppins (Demais elementos) -->
+  <!-- Google Fonts: Bricolage Grotesque (H1 e H2) e Poppins (Demais elementos) - carregado sem bloquear a renderização -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Poppins:wght@400;500;600;700&display=swap">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"></noscript>
   
   <!-- CSS Crítico Inlined (Navbar, Hero e Reserva de Layout) -->
   <style>
@@ -60,8 +62,10 @@
     @media (max-width:480px){.site-header{min-height:70px}.brand-logo{height:62px;width:124px}.header-inner .btn-cta{padding:7px 14px;font-size:11px}.header-inner .btn-cta span{display:none}}
   </style>
 
-  <!-- CSS Principal Minificado -->
-  <link rel="stylesheet" href="style.min.css?v=2">
+  <!-- CSS Principal Minificado - carregado sem bloquear a renderização (o essencial acima já está inline) -->
+  <link rel="preload" as="style" href="style.min.css?v=2">
+  <link rel="stylesheet" href="style.min.css?v=2" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="style.min.css?v=2"></noscript>
 
   <!-- Tag do Google Analytics / Ads (Substituir ID quando publicar) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=AW-XXXXXXXXX"></script>
@@ -166,8 +170,8 @@
             <div class="choose-media">
               <picture>
                 <source media="(max-width: 768px)" type="image/avif" srcset="fotos/kit-320w.avif">
-                <source media="(min-width: 769px)" type="image/avif" srcset="fotos/hero-1280w.avif">
-                <img src="fotos/hero-1280w.avif"
+                <source media="(min-width: 769px)" type="image/avif" srcset="fotos/hero-480w.avif 480w, fotos/hero-768w.avif 768w, fotos/hero-1280w.avif 1280w" sizes="380px">
+                <img src="fotos/hero-768w.avif"
                      alt="Kit personalizado de Dia dos Pais com caneca, cerveja long neck e amendoim"
                      width="380"
                      height="253"
