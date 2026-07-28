@@ -165,10 +165,9 @@
           <article class="choose-card">
             <div class="choose-media">
               <picture>
-                <source type="image/avif"
-                        srcset="fotos/kit-320w.avif 320w, fotos/kit-640w.avif 640w"
-                        sizes="(max-width: 768px) 100vw, 380px">
-                <img src="fotos/kit-640w.avif"
+                <source media="(max-width: 768px)" type="image/avif" srcset="fotos/kit-320w.avif">
+                <source media="(min-width: 769px)" type="image/avif" srcset="fotos/hero-1280w.avif">
+                <img src="fotos/hero-1280w.avif"
                      alt="Kit personalizado de Dia dos Pais com caneca, cerveja long neck e amendoim"
                      width="380"
                      height="253"
